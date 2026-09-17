@@ -14,4 +14,4 @@ These examples were migrated from
 at commit
 [`33474cab`](https://github.com/urth-inc/metatell-official-plugins/commit/33474cab599ad4bb5ab3cb3598b5798793664c25).
 
-The examples are available under the [MIT License](../LICENSE).
+The examples are available under the [MIT License](../../LICENSE).

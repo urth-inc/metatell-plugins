@@ -19,7 +19,7 @@ before coding. Do not invent an API when documentation is unavailable.
 ## Spoke JS Call Events
 
 The public
-[password collection example](https://github.com/urth-inc/metatell-plugins/tree/develop/examples/password-collection-modal)
+[password collection example](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/examples/password-collection-modal)
 shows Active and Passive Trigger responses that dispatch JS Call Events. Each
 response provides:
 
@@ -37,7 +37,7 @@ that behavior.
 ## External API authentication
 
 Use the public
-[external API authentication example](https://github.com/urth-inc/metatell-plugins/tree/develop/examples/external-api-auth)
+[external API authentication example](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/examples/external-api-auth)
 as the starting point:
 
 1. Call `getPluginApiToken(clientId)` from `@urth/metatell-sdk/auth`.
