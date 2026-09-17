@@ -10,7 +10,7 @@ description: >-
 
 # metatell Client Plugin Development
 
-Build the plugin from this repository's canonical `templates/` directory,
+Build the plugin from this repository's canonical `frontend-plugins/templates/` directory,
 preserve the Module Federation identity contract, validate the exact upload
 artifact, and stop there by default. Upload or apply it to a room only when the
 user explicitly requests that action. Do not improvise a generic React
@@ -20,7 +20,7 @@ micro-frontend format.
 
 1. Choose exactly one host extension type from the table below.
 2. Copy that directory from
-   [`urth-inc/metatell-plugins/templates`](https://github.com/urth-inc/metatell-plugins/tree/develop/templates)
+   [`urth-inc/metatell-plugins/frontend-plugins/templates`](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/templates)
    and keep its build pipeline until there is a concrete reason to replace it.
 3. Set the package `name`, `version`, and `description`; implement the exported
    component whose name matches the selected type.
@@ -141,7 +141,7 @@ Use these public sources for current API details and examples:
 - [metatell documentation](https://docs.metatell.io/)
 - [metatell Web SDK](https://sdk.metatell.io/web)
 - [`@urth/metatell-sdk` on npm](https://www.npmjs.com/package/@urth/metatell-sdk)
-- [metatell plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/templates)
-- [metatell plugin examples](https://github.com/urth-inc/metatell-plugins/tree/develop/examples)
+- [metatell plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/templates)
+- [metatell plugin examples](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/examples)
 
 Do not infer undocumented APIs from these URLs when they cannot be accessed.

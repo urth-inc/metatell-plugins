@@ -6,7 +6,7 @@ handing off a release zip.
 ## Supported plugin types
 
 The public
-[plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/templates)
+[plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/templates)
 provide these supported extension types:
 
 ```text
@@ -96,6 +96,6 @@ script excludes the generated `plugin.zip` from itself. Use
 
 ## Public references
 
-- [Plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/templates)
-- [Plugin examples](https://github.com/urth-inc/metatell-plugins/tree/develop/examples)
+- [Plugin templates](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/templates)
+- [Plugin examples](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/examples)
 - [metatell documentation](https://docs.metatell.io/)

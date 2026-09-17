@@ -29,7 +29,7 @@ want to implement. For example:
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/templates/AdditionalToolbarButton /path/to/your/plugin
+cp -R metatell-plugins/frontend-plugins/templates/AdditionalToolbarButton /path/to/your/plugin
 cd /path/to/your/plugin
 git init
 git add .
@@ -43,7 +43,7 @@ Each template README describes its interface and development workflow.
 Run commands from the selected template directory:
 
 ```bash
-cd templates/AdditionalToolbarButton
+cd frontend-plugins/templates/AdditionalToolbarButton
 npm install
 npm run dev
 ```

@@ -37,7 +37,7 @@ plugin. The agent can then select the `metatell-plugin-dev` skill.
   scripts
 
 The skill uses this repository's public
-[templates](https://github.com/urth-inc/metatell-plugins/tree/develop/templates) as
+[templates](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/templates) as
 starters and
-[examples](https://github.com/urth-inc/metatell-plugins/tree/develop/examples) as
+[examples](https://github.com/urth-inc/metatell-plugins/tree/develop/frontend-plugins/examples) as
 reference implementations.
