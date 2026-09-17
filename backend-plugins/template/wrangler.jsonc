@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "backend-plugin-template",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // wrangler dev によるローカル開発用。デプロイには使われない。
+  // Worker を dispatch namespace へ上げるのはプラットフォームであり、
+  // その際に参照されるのは dist/plugin.zip の metadata.json である。
+  //
+  // 注意: dispatch namespace の User Worker では Cron Trigger が使えない。
+  // triggers.crons を書いてもデプロイは成功するが、警告なく無視される。
+  // https://github.com/cloudflare/workers-sdk/issues/13840
+
+  "durable_objects": {
+    "bindings": [{ "name": "ROOM_STATE", "class_name": "RoomState" }]
+  },
+
+  // 新規の DO namespace は SQLite バックエンド必須。new_classes は使えない。
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["RoomState"] }],
+
+  "vars": {
+    "PLUGIN_TOKEN_ISSUER": "https://dev-id.u-rth.dev/realms/master",
+    "PLUGIN_TOKEN_JWKS_URL": "https://dev-id.u-rth.dev/realms/master/protocol/openid-connect/certs",
+    "PLUGIN_TOKEN_AUDIENCE": "metatell-plugin-backend"
+  }
+}
