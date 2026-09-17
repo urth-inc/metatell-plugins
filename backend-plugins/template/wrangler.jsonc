@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "backend-plugin-template",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"]
+
+  // このファイルは worker.js とともに plugin.zip に同梱され、プラットフォームが
+  // dispatch namespace へ Worker を上げるときにそのまま使われる。つまり
+  // バインディングを足したら、ここに書いたものが本番に効く。
+  // 同梱の際に main だけが worker.js へ書き換わる (src/ は同梱しない)。
+  //
+  // 注意: dispatch namespace の User Worker では Cron Trigger が使えない。
+  // triggers.crons を書いてもデプロイは成功するが、警告なく無視される。
+  // https://github.com/cloudflare/workers-sdk/issues/13840
+}
