@@ -4,8 +4,9 @@ This directory contains metatell plugins that run on the server as Cloudflare
 Workers, deployed into a Workers for Platforms dispatch namespace. A request
 reaches them through the platform dispatcher, not through a route of their own.
 
-- [`template`](./template) is the starter project to copy. There is one,
-  because an organization registers one Worker.
+- [`templates`](./templates) holds the starter projects to copy.
+  [`minimal`](./templates/minimal) is the bare one: a health route, the
+  TypeScript setup, and the packaging pipeline.
 
 Backend plugins share nothing with the frontend plugins under
 [`../frontend-plugins`](../frontend-plugins) except the word "plugin". Those are
@@ -44,9 +45,9 @@ archive is assembled. Everything else ships verbatim, comments included.
 
 ## Constraints
 
-These apply to every backend plugin. The template is deliberately bare — it has
-a health route and nothing else — so meeting them is your code's job, not
-something you inherit by copying it.
+These apply to every backend plugin. The `minimal` template is deliberately
+bare — it has a health route and nothing else — so meeting them is your code's
+job, not something you inherit by copying it.
 
 ### Cron Triggers do not work
 

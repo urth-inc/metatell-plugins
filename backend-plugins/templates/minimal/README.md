@@ -1,4 +1,4 @@
-# Backend plugin template
+# Minimal backend plugin template
 
 A starter project for a metatell backend plugin: a Cloudflare Worker that runs
 as a User Worker in a Workers for Platforms dispatch namespace.
@@ -7,15 +7,15 @@ It is deliberately bare. It carries a health route, the TypeScript setup, and
 the packaging pipeline — nothing else. Add your own routes, bindings, and state
 on top.
 
-There is one template, not one per feature, because an organization registers
-one Worker. Every feature goes inside it, so this is the starting point for that
-Worker.
+An organization registers one Worker, so every feature goes inside the project
+you start here. Copy one template and grow it — do not stand up a second Worker
+per feature.
 
 ## Start from this template
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/backend-plugins/template /path/to/your/plugin
+cp -R metatell-plugins/backend-plugins/templates/minimal /path/to/your/plugin
 cd /path/to/your/plugin
 git init
 git add .
@@ -38,10 +38,10 @@ Set the package `name`, `version`, and `description`, and the `name` in
 
 | Method | Path |
 | --- | --- |
-| `GET` | `/healthz` |
+| `GET` | `/health` |
 
 ```bash
-curl http://localhost:8787/healthz   # pnpm dev
+curl http://localhost:8787/health   # pnpm dev
 # {"ok":true}
 ```
 
@@ -52,7 +52,7 @@ curl http://localhost:8787/healthz   # pnpm dev
 
 `wrangler.jsonc` ships in the archive and the platform uploads the Worker with
 it, so step 1 is what creates the binding in production — not just locally.
-[`../README.md`](../README.md) covers what that means for Durable Objects, whose
+[`../../README.md`](../../README.md) covers what that means for Durable Objects, whose
 `migrations` are cumulative and must be appended to rather than rewritten.
 
 ## Commands
@@ -89,5 +89,5 @@ template's workflow — `wrangler` is here for `pnpm dev` only.
 A registered Worker has no route of its own and cannot be called directly. It is
 reached through the platform's dispatch route.
 
-See [`../README.md`](../README.md) for the archive's contents and for the
+See [`../../README.md`](../../README.md) for the archive's contents and for the
 constraints that apply to every backend plugin.
