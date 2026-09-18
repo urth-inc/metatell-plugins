@@ -1,7 +1,7 @@
 {
   "name": "backend-plugin-template",
   "description": "A template for creating a backend plugin for metatell",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@10.26.1",
