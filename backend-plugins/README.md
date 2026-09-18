@@ -23,26 +23,6 @@ An organization registers **one Worker**. One deployment per organization, with
 every feature implemented inside that single Worker — composing features is the
 developer's responsibility in their own code.
 
-## How a request reaches your Worker
-
-Your Worker has no hostname or route of its own. Callers reach it through the
-platform's dispatch route, under the organization that registered it:
-
-```
-https://metatell.app/admin/plugin-api/v1/organizations/{organizationId}/<your route>
-```
-
-**The dispatcher strips that prefix before it hands the request over.** Your
-Worker sees only what follows the organization id, so routes are declared bare:
-
-```ts
-app.get('/healthz', ...)   // https://metatell.app/admin/plugin-api/v1/organizations/acme/healthz
-app.get('/items', ...)     // https://metatell.app/admin/plugin-api/v1/organizations/acme/items
-```
-
-Do not repeat the prefix in a route — a route declared as
-`/admin/plugin-api/v1/...` never matches.
-
 ## The distributed archive
 
 `pnpm build` writes `dist/plugin.zip`. Artifacts sit at the root of the
@@ -123,12 +103,7 @@ returns a 500 with `no such column`.
 
 As with D1, migrations are forward-only. Do not drop columns; it loses data.
 
-### Verifying tokens is the User Worker's job
-
-The dispatcher passes tokens through untouched. The User Worker verifies them
-against JWKS itself and authorizes on the token's claims. Nothing upstream does
-this for you, and the template does not do it either — a route that reads or
-writes anything has to verify before it acts.
+### Read tenant boundaries from the token
 
 Values that define a tenant boundary, such as the room, **must be read from the
 token**. Trusting a client-supplied path or query lets a caller reach another

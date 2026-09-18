@@ -36,23 +36,14 @@ Set the package `name`, `version`, and `description`, and the `name` in
 
 ## Routes
 
-| Method | Path | Reached at |
-| --- | --- | --- |
-| `GET` | `/healthz` | `https://metatell.app/admin/plugin-api/v1/organizations/{organizationId}/healthz` |
-
-Routes are declared bare. This Worker has no hostname of its own: callers go
-through the platform's dispatch route, and **the dispatcher strips
-`/admin/plugin-api/v1/organizations/{organizationId}` before handing the request
-over**. Declaring `/admin/plugin-api/v1/...` in a route matches nothing.
+| Method | Path |
+| --- | --- |
+| `GET` | `/healthz` |
 
 ```bash
-curl https://metatell.app/admin/plugin-api/v1/organizations/{organizationId}/healthz
+curl http://localhost:8787/healthz   # pnpm dev
 # {"ok":true}
 ```
-
-There is no authentication here. The dispatcher passes tokens through untouched,
-so verifying them is the User Worker's job — see [`../README.md`](../README.md)
-before you add a route that reads or writes anything.
 
 ## Adding a binding
 
