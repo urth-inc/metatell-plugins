@@ -1,0 +1,32 @@
+{
+  "name": "backend-plugin-minimal",
+  "description": "A minimal template for creating a backend plugin for metatell",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "node ./scripts/build.js",
+    "lint:tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.9.10"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260916.1",
+    "adm-zip": "^0.6.0",
+    "esbuild": "^0.27.0",
+    "typescript": "^7.0.2",
+    "wrangler": "4.133.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}
