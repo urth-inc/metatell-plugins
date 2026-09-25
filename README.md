@@ -13,8 +13,8 @@ and no registration API. They are kept apart at the repository root.
   [`templates`](./frontend-plugins/templates) and
   [`examples`](./frontend-plugins/examples).
 - [`backend-plugins`](./backend-plugins) — plugins that run as Cloudflare
-  Workers in a Workers for Platforms dispatch namespace. Support for these is
-  still under development and the directory is a placeholder for now.
+  Workers in a Workers for Platforms dispatch namespace. Contains
+  [`templates`](./backend-plugins/templates).
 - [`agent-plugins`](./agent-plugins) — plugins for LLM agents. These are
   development tools and are distinct from the metatell plugins above.
 
