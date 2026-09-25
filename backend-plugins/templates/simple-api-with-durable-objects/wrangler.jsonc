@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "simple-api-with-durable-objects",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "ITEM_STORE", "class_name": "ItemStore" },
+      { "name": "COUNTER_STORE", "class_name": "CounterStore" }
+    ]
+  },
+
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ItemStore"] },
+    { "tag": "v2", "new_sqlite_classes": ["CounterStore"] }
+  ]
+}
