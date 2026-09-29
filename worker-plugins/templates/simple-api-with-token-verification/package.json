@@ -1,6 +1,6 @@
 {
   "name": "simple-api-with-token-verification",
-  "description": "A template for creating a backend plugin for metatell that verifies the access token",
+  "description": "A template for creating a worker plugin for metatell that verifies the access token",
   "version": "0.0.1",
   "type": "module",
   "private": true,

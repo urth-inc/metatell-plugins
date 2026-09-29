@@ -11,5 +11,5 @@ archive.
 - [`examples`](./examples) contains runnable reference implementations for
   specific use cases.
 
-Backend plugins are a different artifact with a different runtime and a separate
-registration API. See [`../backend-plugins`](../backend-plugins).
+Worker plugins are a different artifact with a different runtime and a separate
+registration API. See [`../worker-plugins`](../worker-plugins).

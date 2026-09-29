@@ -1,4 +1,4 @@
-# Backend plugins
+# Worker plugins
 
 This directory contains metatell plugins that run on the server as Cloudflare
 Workers, deployed into a Workers for Platforms dispatch namespace. A request
@@ -7,12 +7,12 @@ reaches them through the platform dispatcher, not through a route of their own.
 - [`templates`](./templates) holds the starter projects to copy — see
   [Templates](#templates) below.
 
-Backend plugins share nothing with the frontend plugins under
+Worker plugins share nothing with the frontend plugins under
 [`../frontend-plugins`](../frontend-plugins) except the word "plugin". Those are
 Module Federation remotes loaded by the browser at runtime; these are bundled
 Workers. The build output, the deployment target, and the registration API
-(`/client/api/v1/backend-plugins` rather than `/client/api/v1/plugins`) are all
-different. Do not copy a build pipeline from one side to the other.
+(`/client/api/v1/organizations/{organizationId}/worker-plugins` rather than
+`/client/api/v1/plugins`) are all different. Do not copy a build pipeline from one side to the other.
 
 ## Templates
 
@@ -21,6 +21,7 @@ different. Do not copy a build pipeline from one side to the other.
 | [`minimal`](./templates/minimal) | A health route, the TypeScript setup, and the packaging pipeline | You want the bare structure and nothing to delete |
 | [`simple-api-with-durable-objects`](./templates/simple-api-with-durable-objects) | Two Durable Object classes — CRUD over items, and named counters — with the schema migration written out | The plugin has to remember something |
 | [`simple-api-with-token-verification`](./templates/simple-api-with-token-verification) | The access token verified against JWKS before a route runs | A route needs to know who is calling |
+| [`simple-api-with-react-frontend`](./templates/simple-api-with-react-frontend) | A React task board built with Vite, embedded in the Worker and served with its API and Durable Object storage from the same origin | The plugin needs a page of its own |
 
 Every template builds the same `dist/plugin.zip`; they differ only in what the
 Worker does. Combining them — state and verification in one Worker — is
@@ -58,7 +59,7 @@ that runs locally builds the same way.
 
 ## Constraints
 
-These apply to every backend plugin. The templates are deliberately small, so
+These apply to every worker plugin. The templates are deliberately small, so
 meeting them is your code's job rather than something you inherit by copying
 one.
 

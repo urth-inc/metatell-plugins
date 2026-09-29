@@ -12,9 +12,9 @@ and no registration API. They are kept apart at the repository root.
   Module Federation remotes, written in TypeScript and React. Contains
   [`templates`](./frontend-plugins/templates) and
   [`examples`](./frontend-plugins/examples).
-- [`backend-plugins`](./backend-plugins) — plugins that run as Cloudflare
+- [`worker-plugins`](./worker-plugins) — plugins that run as Cloudflare
   Workers in a Workers for Platforms dispatch namespace. Contains
-  [`templates`](./backend-plugins/templates).
+  [`templates`](./worker-plugins/templates).
 - [`agent-plugins`](./agent-plugins) — plugins for LLM agents. These are
   development tools and are distinct from the metatell plugins above.
 

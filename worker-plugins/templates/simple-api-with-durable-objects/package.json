@@ -1,6 +1,6 @@
 {
   "name": "simple-api-with-durable-objects",
-  "description": "A backend plugin template for metatell with small APIs backed by Durable Objects",
+  "description": "A worker plugin template for metatell with small APIs backed by Durable Objects",
   "version": "0.0.1",
   "type": "module",
   "private": true,

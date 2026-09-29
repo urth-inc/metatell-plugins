@@ -1,6 +1,6 @@
 # Simple API with token verification
 
-A starter project for a metatell backend plugin that authenticates its callers:
+A starter project for a metatell worker plugin that authenticates its callers:
 a Cloudflare Worker verifying the access token against JWKS before it does
 anything.
 
@@ -24,7 +24,7 @@ caller's identity is whatever they claim. This template does three things:
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/backend-plugins/templates/simple-api-with-token-verification \
+cp -R metatell-plugins/worker-plugins/templates/simple-api-with-token-verification \
   /path/to/your/plugin
 cd /path/to/your/plugin
 git init
@@ -149,4 +149,4 @@ template's workflow — `wrangler` is here for `pnpm dev` and for bundling in
 `pnpm build`.
 
 See [`../../README.md`](../../README.md) for the archive's contents and for the
-constraints that apply to every backend plugin.
+constraints that apply to every worker plugin.
