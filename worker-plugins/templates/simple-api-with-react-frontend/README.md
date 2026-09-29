@@ -8,11 +8,6 @@ The app is a to-do list: add an item, delete it. The items are kept in a
 Durable Object, so they survive reloads and are shared by everyone who opens
 the page.
 
-> [!IMPORTANT]
-> The page ships as Workers Static Assets, and the platform does not upload the
-> archive's `assets/` yet. Until it does, a registered plugin answers its API
-> but has no page.
-
 ## Start from this template
 
 ```bash
