@@ -1,6 +1,6 @@
 {
-  "name": "simple-api-with-react-frontend",
-  "description": "A worker plugin template for metatell that serves a React to-do list and its API",
+  "name": "simple-api-with-vue-frontend",
+  "description": "A worker plugin template for metatell that serves a Vue to-do list and its API",
   "version": "0.0.1",
   "type": "module",
   "private": true,

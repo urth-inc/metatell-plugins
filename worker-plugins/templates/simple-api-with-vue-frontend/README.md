@@ -1,7 +1,7 @@
-# Simple API with a React frontend
+# Simple API with a Vue frontend
 
 A starter project for a metatell worker plugin that has its own page: a
-Cloudflare Worker that serves a React app built with Vite, and the API that app
+Cloudflare Worker that serves a Vue app built with Vite, and the API that app
 calls, from the same origin.
 
 The app is a to-do list: add an item, delete it. The items are kept in a
@@ -12,7 +12,7 @@ the page.
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/worker-plugins/templates/simple-api-with-react-frontend \
+cp -R metatell-plugins/worker-plugins/templates/simple-api-with-vue-frontend \
   /path/to/your/plugin
 cd /path/to/your/plugin
 git init
@@ -31,8 +31,9 @@ declares only what it needs.
 | Path | Contents |
 | --- | --- |
 | `frontend/index.html` | Sets `<base>` to the app's root. |
-| `frontend/src/main.tsx` | Shows the app at its root, and "not found" elsewhere. |
-| `frontend/src/App.tsx` | The page. |
+| `frontend/src/main.ts` | Mounts `App` at its root, and `NotFound` elsewhere. |
+| `frontend/src/App.vue` | The page. |
+| `frontend/src/NotFound.vue` | The page for paths that do not exist. |
 | `frontend/src/api.ts` | The API client. Calls `./api/...`, relative to the root. |
 | `frontend/vite.config.ts` | Relative `base`, and `static/` for built files. |
 | `worker/src/index.ts` | The API routes. |
@@ -118,13 +119,16 @@ picks it up. Run these at the root:
 ```bash
 pnpm install
 pnpm dev            # wrangler dev on :8787, rebuilding the page as you edit
-pnpm lint:tsc       # typecheck both packages
+pnpm lint:tsc       # typecheck both packages (vue-tsc for the frontend)
 pnpm build          # writes dist/plugin.zip
 ```
 
 `pnpm dev` builds the page with `vite build --watch` and serves it with
 `wrangler dev` the way the platform will. After an edit, reload the browser to
 see the change. It needs no Cloudflare credentials.
+
+The frontend uses TypeScript 6, not 7 like the Worker: `vue-tsc` does not run
+on TypeScript 7 yet.
 
 `esbuild` and `workerd` are allowed to run their install scripts under
 `pnpm.onlyBuiltDependencies` in `package.json`; without that, `pnpm build` and
