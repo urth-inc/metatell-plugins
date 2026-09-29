@@ -1,0 +1,25 @@
+{
+  "name": "simple-api-with-vue-frontend",
+  "description": "A worker plugin template for metatell that serves a Vue to-do list and its API",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node -e \"fs.mkdirSync('frontend/dist', { recursive: true })\" && pnpm --parallel -r dev",
+    "lint:tsc": "pnpm -r lint:tsc",
+    "build": "node ./scripts/build.js"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.6.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}
