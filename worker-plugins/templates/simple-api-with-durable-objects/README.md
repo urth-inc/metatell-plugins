@@ -1,6 +1,6 @@
 # Simple API with Durable Objects
 
-A starter project for a metatell backend plugin that keeps state: a Cloudflare
+A starter project for a metatell worker plugin that keeps state: a Cloudflare
 Worker with two small APIs, each backed by its own Durable Object class — a CRUD
 API over items, and named counters.
 
@@ -12,7 +12,7 @@ would otherwise delete.
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/backend-plugins/templates/simple-api-with-durable-objects \
+cp -R metatell-plugins/worker-plugins/templates/simple-api-with-durable-objects \
   /path/to/your/plugin
 cd /path/to/your/plugin
 git init
@@ -210,4 +210,4 @@ template's workflow — `wrangler` is here for `pnpm dev` and for bundling in
 `pnpm build`.
 
 See [`../../README.md`](../../README.md) for the archive's contents and for the
-constraints that apply to every backend plugin.
+constraints that apply to every worker plugin.

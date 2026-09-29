@@ -1,6 +1,6 @@
-# Minimal backend plugin template
+# Minimal worker plugin template
 
-A starter project for a metatell backend plugin: a Cloudflare Worker that runs
+A starter project for a metatell worker plugin: a Cloudflare Worker that runs
 as a User Worker in a Workers for Platforms dispatch namespace.
 
 It is deliberately bare. It carries a health route, the TypeScript setup, and
@@ -15,7 +15,7 @@ per feature.
 
 ```bash
 git clone git@github.com:urth-inc/metatell-plugins.git
-cp -R metatell-plugins/backend-plugins/templates/minimal /path/to/your/plugin
+cp -R metatell-plugins/worker-plugins/templates/minimal /path/to/your/plugin
 cd /path/to/your/plugin
 git init
 git add .
@@ -99,4 +99,4 @@ A registered Worker has no route of its own and cannot be called directly. It is
 reached through the platform's dispatch route.
 
 See [`../../README.md`](../../README.md) for the archive's contents and for the
-constraints that apply to every backend plugin.
+constraints that apply to every worker plugin.

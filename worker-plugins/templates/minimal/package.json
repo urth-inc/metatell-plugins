@@ -1,6 +1,6 @@
 {
   "name": "minimal",
-  "description": "A minimal template for creating a backend plugin for metatell",
+  "description": "A minimal template for creating a worker plugin for metatell",
   "version": "0.0.1",
   "type": "module",
   "private": true,
