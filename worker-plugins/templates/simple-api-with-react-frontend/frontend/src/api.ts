@@ -2,6 +2,15 @@ import type { Todo } from '../../worker/src/todo'
 
 export type { Todo }
 
+export class ApiError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+  ) {
+    super(message)
+  }
+}
+
 // 相対パスは index.html が置く <base>（アプリの入口）から解決される。
 const request = async <T,>(path: string, init?: RequestInit): Promise<T> => {
   const response = await fetch(`./api/${path}`, {
@@ -12,7 +21,10 @@ const request = async <T,>(path: string, init?: RequestInit): Promise<T> => {
     const body = (await response.json().catch(() => null)) as {
       message?: string
     } | null
-    throw new Error(body?.message ?? `HTTP ${response.status}`)
+    throw new ApiError(
+      body?.message ?? `HTTP ${response.status}`,
+      response.status,
+    )
   }
   return (response.status === 204 ? undefined : await response.json()) as T
 }
@@ -26,5 +38,9 @@ export const api = {
       body: JSON.stringify({ text }),
     }).then((r) => r.todo),
 
-  remove: (id: number) => request<void>(`todos/${id}`, { method: 'DELETE' }),
+  // 二度押しや別の画面で先に消されていても、消すという目的は果たしている。
+  remove: (id: number) =>
+    request<void>(`todos/${id}`, { method: 'DELETE' }).catch((e: unknown) => {
+      if (!(e instanceof ApiError && e.status === 404)) throw e
+    }),
 }

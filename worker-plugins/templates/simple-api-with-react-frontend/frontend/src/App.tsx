@@ -7,7 +7,8 @@ import type { Todo } from './api'
 export const App = () => {
   const [todos, setTodos] = useState<Todo[]>([])
   const [text, setText] = useState('')
-  const [saving, setSaving] = useState(false)
+  // 最初の一覧が届くまでは追加させない。後から届いた一覧が、追加した項目を上書きするため。
+  const [busy, setBusy] = useState(true)
   const [error, setError] = useState<string>()
 
   const run = async (action: () => Promise<void>) => {
@@ -22,22 +23,22 @@ export const App = () => {
   }
 
   useEffect(() => {
-    void run(async () => setTodos(await api.list()))
+    void run(async () => setTodos(await api.list())).then(() => setBusy(false))
   }, [])
 
   // 入力欄は送る前に空ける。待つ間に打った文字を、応答で消さないため。
   const add = async (event: FormEvent) => {
     event.preventDefault()
-    if (saving) return
+    if (busy) return
     const value = text
-    setSaving(true)
+    setBusy(true)
     setText('')
     const ok = await run(async () => {
       const todo = await api.add(value)
       setTodos((todos) => [...todos, todo])
     })
     if (!ok) setText((current) => current || value)
-    setSaving(false)
+    setBusy(false)
   }
 
   const remove = (id: number) =>
@@ -58,7 +59,7 @@ export const App = () => {
           maxLength={200}
           required
         />
-        <button type="submit" disabled={saving}>
+        <button type="submit" disabled={busy}>
           追加
         </button>
       </form>

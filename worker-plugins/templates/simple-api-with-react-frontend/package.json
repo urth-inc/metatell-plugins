@@ -9,7 +9,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "pnpm --filter frontend build && pnpm --filter worker dev",
+    "dev": "node -e \"fs.mkdirSync('frontend/dist', { recursive: true })\" && pnpm --parallel -r dev",
     "lint:tsc": "pnpm -r lint:tsc",
     "build": "node ./scripts/build.js"
   },

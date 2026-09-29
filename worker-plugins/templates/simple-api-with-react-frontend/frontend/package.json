@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "dev": "vite build --watch --emptyOutDir false",
     "build": "vite build",
     "lint:tsc": "tsc --noEmit"
   },

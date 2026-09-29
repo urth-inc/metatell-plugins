@@ -117,13 +117,14 @@ picks it up. Run these at the root:
 
 ```bash
 pnpm install
-pnpm dev            # build the page, then wrangler dev on :8787 serving it
+pnpm dev            # wrangler dev on :8787, rebuilding the page as you edit
 pnpm lint:tsc       # typecheck both packages
 pnpm build          # writes dist/plugin.zip
 ```
 
-`pnpm dev` serves the built page the way the platform will; rerun it to see a
-change. It needs no Cloudflare credentials.
+`pnpm dev` builds the page with `vite build --watch` and serves it with
+`wrangler dev` the way the platform will. After an edit, reload the browser to
+see the change. It needs no Cloudflare credentials.
 
 `esbuild` and `workerd` are allowed to run their install scripts under
 `pnpm.onlyBuiltDependencies` in `package.json`; without that, `pnpm build` and
