@@ -5,8 +5,9 @@ for metatell, plus an LLM-agent plugin that assists with that development.
 
 ## Repository layout
 
-Plugins come in two kinds that share no build pipeline, no deployment target,
-and no registration API. They are kept apart at the repository root.
+Plugins come in two kinds that share no build pipeline and no deployment
+target, and are registered separately. They are kept apart at the repository
+root.
 
 - [`frontend-plugins`](./frontend-plugins) — plugins that run in the browser as
   Module Federation remotes, written in TypeScript and React. Contains

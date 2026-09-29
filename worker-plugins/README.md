@@ -10,9 +10,8 @@ reaches them through the platform dispatcher, not through a route of their own.
 Worker plugins share nothing with the frontend plugins under
 [`../frontend-plugins`](../frontend-plugins) except the word "plugin". Those are
 Module Federation remotes loaded by the browser at runtime; these are bundled
-Workers. The build output, the deployment target, and the registration API
-(`/client/api/v1/organizations/{organizationId}/worker-plugins` rather than
-`/client/api/v1/plugins`) are all different. Do not copy a build pipeline from one side to the other.
+Workers. The build output, the deployment target, and how they are registered
+are all different. Do not copy a build pipeline from one side to the other.
 
 ## Templates
 
