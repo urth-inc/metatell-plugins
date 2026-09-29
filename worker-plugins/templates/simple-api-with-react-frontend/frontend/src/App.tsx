@@ -52,10 +52,11 @@ export const App = () => {
       <h1>ToDo</h1>
 
       <form onSubmit={(event) => void add(event)}>
+        <label htmlFor="todo-text">やること</label>
         <input
+          id="todo-text"
           value={text}
           onChange={(event) => setText(event.target.value)}
-          placeholder="やること"
           maxLength={200}
           required
         />

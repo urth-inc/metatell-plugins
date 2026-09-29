@@ -53,7 +53,8 @@ const remove = (id: number) =>
     <h1>ToDo</h1>
 
     <form @submit.prevent="add">
-      <input v-model="text" placeholder="やること" maxlength="200" required />
+      <label for="todo-text">やること</label>
+      <input id="todo-text" v-model="text" maxlength="200" required />
       <button type="submit" :disabled="busy">追加</button>
     </form>
 
