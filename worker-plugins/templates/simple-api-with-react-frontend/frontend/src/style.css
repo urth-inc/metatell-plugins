@@ -1,0 +1,40 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+form,
+li {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  flex: 1;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}
+
+li span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+[role='alert'] {
+  color: #dc2626;
+}

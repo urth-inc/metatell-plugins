@@ -1,0 +1,25 @@
+{
+  "name": "simple-api-with-react-frontend",
+  "description": "A worker plugin template for metatell that serves a React to-do list and its API",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --filter frontend build && pnpm --filter worker dev",
+    "lint:tsc": "pnpm -r lint:tsc",
+    "build": "node ./scripts/build.js"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.6.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}
