@@ -20,7 +20,6 @@ are all different. Do not copy a build pipeline from one side to the other.
 | [`minimal`](./templates/minimal) | A health route, the TypeScript setup, and the packaging pipeline | You want the bare structure and nothing to delete |
 | [`simple-api-with-durable-objects`](./templates/simple-api-with-durable-objects) | Two Durable Object classes — CRUD over items, and named counters — with the schema migration written out | The plugin has to remember something |
 | [`simple-api-with-token-verification`](./templates/simple-api-with-token-verification) | The access token verified against JWKS before a route runs | A route needs to know who is calling |
-| [`simple-api-with-react-frontend`](./templates/simple-api-with-react-frontend) | A React task board built with Vite, embedded in the Worker and served with its API and Durable Object storage from the same origin | The plugin needs a page of its own |
 
 Every template builds the same `dist/plugin.zip`; they differ only in what the
 Worker does. Combining them — state and verification in one Worker — is
