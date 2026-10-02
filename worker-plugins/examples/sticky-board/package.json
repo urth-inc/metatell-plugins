@@ -1,0 +1,25 @@
+{
+  "name": "sticky-board",
+  "description": "A metatell worker plugin example: a real-time sticky-note board over WebSocket, with a React page",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node -e \"fs.mkdirSync('frontend/dist', { recursive: true })\" && pnpm --parallel -r dev",
+    "lint:tsc": "pnpm -r lint:tsc",
+    "build": "node ./scripts/build.js"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.6.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}
