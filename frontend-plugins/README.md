@@ -10,6 +10,3 @@ archive.
   supported plugin type.
 - [`examples`](./examples) contains runnable reference implementations for
   specific use cases.
-
-Worker plugins are a different artifact with a different runtime, and are
-registered separately. See [`../worker-plugins`](../worker-plugins).
