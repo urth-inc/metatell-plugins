@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const getCurrentHubId = () => {
   const qs = new URLSearchParams(location.search);
 
-  return (
-    qs.get("hub_id") || document.location.pathname.substring(1).split("/")[0]
-  );
+  return qs.get("hub_id") || document.location.pathname.substring(1).split("/")[0];
 };
 
 export const useFoundPasswords = () => {
@@ -18,9 +16,7 @@ export const useFoundPasswords = () => {
       return;
     }
 
-    const storedData = JSON.parse(
-      localStorage.getItem("foundPasswordObjectNames") || "{}",
-    );
+    const storedData = JSON.parse(localStorage.getItem("foundPasswordObjectNames") || "{}");
 
     const foundPasswordObjectNames = storedData[roomId] ?? [];
 
@@ -39,9 +35,7 @@ export const useFoundPasswords = () => {
       return;
     }
 
-    const storedData = JSON.parse(
-      localStorage.getItem("foundPasswordObjectNames") || "{}",
-    );
+    const storedData = JSON.parse(localStorage.getItem("foundPasswordObjectNames") || "{}");
 
     const prevFoundPasswordObjectNames = storedData[roomId] ?? [];
 
@@ -65,10 +59,7 @@ export const useFoundPasswords = () => {
 
     storedData[roomId] = newFoundPasswordObjectNames;
 
-    localStorage.setItem(
-      "foundPasswordObjectNames",
-      JSON.stringify(storedData),
-    );
+    localStorage.setItem("foundPasswordObjectNames", JSON.stringify(storedData));
 
     // @ts-expect-error - type definition is incomplete
     setFoundPasswords([...newFoundPasswordObjectNames]);

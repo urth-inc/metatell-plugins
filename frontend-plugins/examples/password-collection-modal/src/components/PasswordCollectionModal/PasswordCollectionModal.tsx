@@ -1,24 +1,18 @@
 import classNames from "classnames";
 import React from "react";
-
-import questionMark from "./question_mark.png";
+import { useToggle } from "../../hooks/useToggle";
 
 import { IndicatorIcon } from "./IndicatorIcon";
 
-import * as styles from "./PasswordCollectionModal.module.scss";
-
+import styles from "./PasswordCollectionModal.module.scss";
+import questionMark from "./question_mark.png";
 import { useFoundPasswords } from "./useFoundPasswords";
-
-import { useToggle } from "../../hooks/useToggle";
 
 export const PasswordCollectionModal: React.FC = () => {
   const [isOpen, toggleIsOpen] = useToggle(false);
   const { foundPasswords } = useFoundPasswords();
   const foundPasswordsMap = new Map(
-    foundPasswords.map((password: { index: number; imgSrc: string }) => [
-      password.index,
-      password,
-    ]),
+    foundPasswords.map((password: { index: number; imgSrc: string }) => [password.index, password]),
   );
 
   const displayPasswords = [
@@ -40,34 +34,20 @@ export const PasswordCollectionModal: React.FC = () => {
   ];
 
   return (
-    <div
-      data-mt="PasswordCollectionModal"
-      className={styles.passwordListContainer}
-    >
+    <div data-mt="PasswordCollectionModal" className={styles.passwordListContainer}>
       <button
-        className={classNames(
-          styles.passwordMenuButton,
-          isOpen ? "opened" : "closed",
-        )}
+        type="button"
+        className={classNames(styles.passwordMenuButton, isOpen ? "opened" : "closed")}
         onClick={toggleIsOpen}
       >
         <div className={styles.passwordMenuButtonTitle}>見つけたパスワード</div>
         <div
-          className={
-            isOpen
-              ? styles.activePasswordMenuButtonIcon
-              : styles.passwordMenuButtonIcon
-          }
+          className={isOpen ? styles.activePasswordMenuButtonIcon : styles.passwordMenuButtonIcon}
         >
           <IndicatorIcon />
         </div>
       </button>
-      <div
-        className={classNames(
-          styles.passwordMenuBody,
-          isOpen ? "opened" : "closed",
-        )}
-      >
+      <div className={classNames(styles.passwordMenuBody, isOpen ? "opened" : "closed")}>
         <hr />
         {displayPasswords.map((password) => {
           return (

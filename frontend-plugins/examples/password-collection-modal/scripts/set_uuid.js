@@ -1,6 +1,6 @@
-const { v4: uuidv4 } = require("uuid");
+import { v4 as uuidv4 } from "uuid";
 
 const uuid = uuidv4();
 const versionId = "app_" + uuid.replace(/-/g, "");
 
-console.log(`VERSION_ID=${versionId}`);
+process.stdout.write(`VERSION_ID=${versionId}\nVITE_VERSION_ID=${versionId}\n`);
