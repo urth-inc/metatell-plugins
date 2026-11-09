@@ -10,18 +10,17 @@ You can replace the default megaphone button a custom one by creating a CustomCh
 
 ## Pre-requisites
 
-- Node.js 24 (We recommend using volta to manage node versions)
+- Node.js 24
+- pnpm 12
 
-## npm scripts
+## Scripts
 
-- `npm run dev`: Start the development server
-- `npm run build`: Build the project
-- `npm run preview`: Preview the production build locally
-- `npm run test`: Run unit tests (vitest)
-- `npm run lint`: Run all lint check
-- `npm run lint:tsc`: Run code check based on tsc
-- `npm run lint:biome`: Run code check based on biome
-- `npm run lint-fix`: Run code fix based on biome
+- `pnpm dev`: Start the development server
+- `pnpm build`: Build the project
+- `pnpm preview`: Preview the production build locally
+- `pnpm test`: Run unit tests (Vitest)
+- `pnpm lint`: Run format, lint, and type checks (`vp check`)
+- `pnpm lint-fix`: Fix format and lint issues (`vp check --fix`)
 
 ## Interfaces
 
@@ -62,7 +61,7 @@ interface CustomMegaphoneButtonProps {
 install the dependencies by running the following command:
 
 ```
-npm install
+pnpm install
 ```
 
 2. Run the development server
@@ -72,7 +71,7 @@ Run the following command to start the development server:
 the development server will start at http://localhost:3004
 
 ```
-npm run dev
+pnpm dev
 ```
 
 3. update package.json to add metadata
@@ -94,7 +93,7 @@ You can update the following fields to the package.json file:
 Run the following command to build the project:
 
 ```
-npm run build
+pnpm build
 ```
 
 You can find the built files in the `dist` directory.
@@ -117,4 +116,3 @@ You can upload the plugin from `metatell-admin` dashboard.
 You can use CSS Modules without any additional configuration.
 
 If you want to use different styling systems like styled-components, you can do so by installing the required packages.
-

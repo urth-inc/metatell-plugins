@@ -1,57 +1,57 @@
 .root {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
-	padding: 36px 28px;
-	min-width: 280px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	word-break: break-all;
-	background-color: #ffffff;
-	border-radius: 12px;
+  padding: 36px 28px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  word-break: break-all;
+  background-color: #ffffff;
+  border-radius: 12px;
 }
 
 .title {
-	margin: 0 0 16px;
-	font-size: 20px;
-	font-weight: 600;
-	color: #111827;
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
 }
 
 .message {
-	margin: 0 0 28px;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #4b5563;
+  margin: 0 0 28px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
 }
 
 .button {
-	padding: 10px 22px;
-	font-size: 14px;
-	font-weight: 500;
-	color: #ffffff;
-	background-color: #374151;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #374151;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .button:hover {
-	background-color: #1f2937;
+  background-color: #1f2937;
 }
 
 .logo {
-	position: absolute;
-	transform: translateY(calc(-100% - 20px));
-	max-width: 260px;
-	max-height: 140px;
-	width: auto;
-	height: auto;
-	object-fit: contain;
+  position: absolute;
+  transform: translateY(calc(-100% - 20px));
+  max-width: 260px;
+  max-height: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }

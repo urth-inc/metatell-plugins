@@ -13,7 +13,7 @@ const excludeFiles = ["plugin.zip"];
 
 function addFolderToZip(folderPath, zipFolderPath = "") {
   const items = fs.readdirSync(folderPath);
-  items.forEach(item => {
+  items.forEach((item) => {
     const fullPath = path.join(folderPath, item);
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {

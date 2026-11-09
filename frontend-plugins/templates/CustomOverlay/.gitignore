@@ -31,3 +31,4 @@ __mf__temp/
 
 # Coverage
 coverage/
+.vitest/

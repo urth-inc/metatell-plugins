@@ -1,27 +1,27 @@
 {
   "name": "custom-entry-panel",
-  "description": "A template for creating custom EntryPanel for metatell",
   "version": "0.0.0",
+  "description": "A template for creating custom EntryPanel for metatell",
   "type": "module",
-  "engines": {
-    "node": ">=24"
-  },
   "scripts": {
-    "dev": "npm run set-uuid && env-cmd -f .uuid.env vite",
-    "build": "rimraf dist && npm run set-uuid && env-cmd -f .uuid.env vite build && env-cmd -f .uuid.env node ./scripts/add_metadata.js && node ./scripts/archive_dist.js",
-    "preview": "vite preview",
-    "test": "vitest run",
-    "lint:tsc": "tsc --noEmit",
-    "lint:biome": "biome check src",
-    "lint": "npm run lint:tsc && npm run lint:biome",
-    "lint-fix": "biome check --write src",
+    "dev": "pnpm set-uuid && env-cmd -f .uuid.env vp dev",
+    "build": "rimraf dist && pnpm set-uuid && env-cmd -f .uuid.env vp build && env-cmd -f .uuid.env node ./scripts/add_metadata.js && node ./scripts/archive_dist.js",
+    "preview": "vp preview",
+    "test": "vp test run",
+    "lint": "vp check",
+    "lint-fix": "vp check --fix",
     "set-uuid": "node ./scripts/set_uuid.js > .uuid.env"
   },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-use-css-breakpoints": "^1.0.5"
+  },
   "devDependencies": {
-    "@biomejs/biome": "2.5.7",
     "@module-federation/vite": "^1.20.5",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.2",
+    "@types/node": "^24.19.2",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@types/react-modal": "^3.16.3",
@@ -31,18 +31,13 @@
     "jsdom": "^30.0.1",
     "rimraf": "^6.1.3",
     "sass": "^1.102.0",
-    "typescript": "^7.0.2",
     "uuid": "^14.0.1",
-    "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-use-css-breakpoints": "^1.0.5"
+  "engines": {
+    "node": ">=24"
   },
-  "volta": {
-    "node": "24.11.0",
-    "npm": "11.6.2"
-  }
+  "packageManager": "pnpm@12.18.0"
 }
