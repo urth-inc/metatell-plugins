@@ -30,8 +30,8 @@ For password-collection-modal, you can use the following settings.
 
 ```json
 {
-   "index": 0,
-   "image_url": "https://example.com/image.png"
+  "index": 0,
+  "image_url": "https://example.com/image.png"
 }
 ```
 

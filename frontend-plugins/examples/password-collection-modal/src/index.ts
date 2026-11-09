@@ -1,2 +1,1 @@
-import("./bootstrap");
-export {};
+export { CustomOverlay } from "./components/CustomOverlay";

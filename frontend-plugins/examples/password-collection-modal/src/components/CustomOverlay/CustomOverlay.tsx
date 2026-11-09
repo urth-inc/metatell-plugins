@@ -1,8 +1,8 @@
-import React from "react";
-
-import * as styles from "./CustomOverlay.module.scss";
+import type React from "react";
 import { PasswordCollectionModal } from "../PasswordCollectionModal";
-interface CustomOverlayProps {}
+import styles from "./CustomOverlay.module.scss";
+
+type CustomOverlayProps = {};
 
 export const CustomOverlay: React.FC<CustomOverlayProps> = () => {
   return (
