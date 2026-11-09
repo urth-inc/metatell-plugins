@@ -2,14 +2,13 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { federation } from "@module-federation/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vitest/config";
+import { defineConfig, lazyPlugins } from "vite-plus";
 
 import pkg from "./package.json";
 
 const versionId = process.env.VERSION_ID || "custom_megaphone_button";
 
-const rawPublicPath =
-  process.env.MF_PUBLIC_PATH || process.env.PUBLIC_PATH || "";
+const rawPublicPath = process.env.MF_PUBLIC_PATH || process.env.PUBLIC_PATH || "";
 const publicPath = rawPublicPath ? rawPublicPath.replace(/\/?$/, "/") : "auto";
 
 /**
@@ -17,7 +16,10 @@ const publicPath = rawPublicPath ? rawPublicPath.replace(/\/?$/, "/") : "auto";
  * VERSION_ID をソルトに含めることで、ホスト上で他プラグインとクラス名が衝突しない。
  */
 const generateScopedName = (name: string, filename: string) => {
-  const file = path.basename(filename).replace(/\.\w+$/, "").replace(/\./g, "-");
+  const file = path
+    .basename(filename)
+    .replace(/\.\w+$/, "")
+    .replace(/\./g, "-");
   const hash = createHash("sha256")
     .update(`${versionId}:${filename}:${name}`)
     .digest("base64")
@@ -27,8 +29,22 @@ const generateScopedName = (name: string, filename: string) => {
 };
 
 export default defineConfig(({ command }) => ({
+  fmt: {
+    ignorePatterns: ["dist/**"],
+  },
+  lint: {
+    ignorePatterns: ["dist/**"],
+    jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+    rules: {
+      "vite-plus/prefer-vite-plus-imports": "error",
+    },
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+  },
   base: command === "build" ? "./" : "/",
-  plugins: [
+  plugins: lazyPlugins(() => [
     react(),
     federation({
       name: versionId,
@@ -53,7 +69,7 @@ export default defineConfig(({ command }) => ({
         },
       },
     }),
-  ],
+  ]),
   css: {
     modules: {
       localsConvention: "camelCase",

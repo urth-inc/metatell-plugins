@@ -44,18 +44,18 @@ Run commands from the selected template directory:
 
 ```bash
 cd frontend-plugins/templates/AdditionalToolbarButton
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Template development servers use `http://localhost:3004` by default. Running
-`npm run dev` or `npm run build` generates a new plugin version ID in
+`pnpm dev` or `pnpm build` generates a new plugin version ID in
 `.uuid.env`.
 
 Use the template's build command to create the upload artifact:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 The generated plugin archive is written to `dist/plugin.zip`.
